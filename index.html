@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Calendar</title>
+    <style>
+        body {
+            display: flex;
+            background-color: cyan;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: cursive;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 300px;
+            height: auto;
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .month {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .day {
+            font-size: 20px;
+            color: darkgray;
+        }
+
+        .date {
+            font-size: 40px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .year {
+            font-size: 20px;
+            color: darkgray;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .month {
+                font-size: 24px;
+            }
+
+            .day {
+                font-size: 18px;
+            }
+
+            .date {
+                font-size: 36px;
+            }
+
+            .year {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .month {
+                font-size: 20px;
+            }
+
+            .day {
+                font-size: 16px;
+            }
+
+            .date {
+                font-size: 32px;
+            }
+
+            .year {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="month" id="month">December</p>
+        <p class="day" id="day">Monday</p>
+        <p class="date" id="date">01</p>
+        <p class="year" id="year">2020</p>
+    </div>
+
+    <script>
+        let obj = new Date();
+        let month = document.getElementById('month')
+        month.innerText = obj.toLocaleString('en', { month: 'long' })
+        let day = document.getElementById('day')
+        day.innerText = obj.toLocaleString('en', { weekday: 'long' })
+        let date = document.getElementById('date')
+        date.innerText = obj.getDate()
+        let year = document.getElementById('year')
+        year.innerText = obj.getFullYear()
+    </script>
+</body>
+
+</html>
